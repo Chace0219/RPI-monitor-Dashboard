@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ScoreBoard</title>
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="/static/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+ </head>
+<body>
+    <div class="container">
+        <div id="wrapper">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="m-t-lg">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5><button class="btn btn-success pull-left" id='add_site'><strong>Add</strong></button></h5>
+                                    
+                                </div>
+                                <div class="ibox-content">
+
+                                    <table class="table table-striped table-bordered table-hover" id='dataTables-event'>
+                                        <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Ipaddr</th>
+                                            <th>Gpio</th>
+                                            <th>Status</th>
+                                            <th>Cycle</th>
+                                            <th>UserId</th>
+                                            <th>Password</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+
+
+ <!-- Mainly scripts -->
+<script src="/static/js/jquery-3.1.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="/static/js/plugins/pace/pace.min.js"></script>
+<script src="/static/js/plugins/dataTables/datatables.min.js"></script>
+<script src="/static/js/plugins/toastr/toastr.min.js"></script>
+
+<script src="/static/js/socket.io.min.js"></script>
+<script src="/static/js/action.js"></script>
+<script>
+  jQuery.support.cors = true;
+ 
+  $(document).on('click', '#add_site', function(e)
+  {
+    e.preventDefault();
+
+        var request = $.ajax
+      ({
+        url:          '/insert',
+        type:         'GET',
+        success: function(response)
+        {
+            location.reload();
+            console.log(response);
+            
+        },
+        error: function(error) 
+        {
+            console.log(error);
+        }
+      });
+    
+  });
+
+  $(document).on('click', '.function_reboot', function(e)
+  {
+    e.preventDefault();
+
+    var userid = $(this).data('id');
+    
+    
+      var request = $.ajax
+      ({
+        url:          '/reboot',
+        data:         'uniqueid='+userid,
+        type:         'GET',
+        success: function(response)
+        {
+            location.reload();
+            
+        },
+        error: function(error) 
+        {
+            console.log(error);
+        }
+      });
+    
+  });
+
+    $('#dataTables-event').on( 'click', 'tbody td.edit', function (e) 
+    {
+        var value = $(this).text();
+        var key = $(this).data('name');
+        if($(this).find('input').length <1)
+            $(this).html('<input type="text" class="form-control input-sm '+key+'" style="width:120px" id="'+key+'" name="" value="'+value+'">');
+    });
+
+    $(document).on('mouseout', '.input-sm', function(e)
+    {
+      e.preventDefault();
+      var id = $(this).parent().parent().attr('id');
+      var request = $.ajax
+      ({
+        url:          '/update',
+        data:         'uniqueid='+id+'&'+$(this).attr('id')+'='+$(this).val(),
+        type:         'GET',
+        success: function(response)
+        {
+            location.reload();
+            
+        },
+        error: function(error) 
+        {
+            console.log(error);
+        }
+      });  
+      
+    });   
+  $(document).on('click', '.function_power', function(e)
+  {
+    e.preventDefault();
+
+    var userid = $(this).data('id');
+    
+    
+      var request = $.ajax
+      ({
+        url:          '/poweron',
+        data:         'uniqueid='+userid,
+        type:         'GET',
+        success: function(response)
+        {
+            location.reload();
+            
+        },
+        error: function(error) 
+        {
+            console.log(error);
+        }
+      });
+      
+    
+    
+  });
+  
+  $(document).on('click', '.function_delete', function(e)
+  {
+    e.preventDefault();
+    var userid = $(this).data('id');
+    
+    if (confirm("Are you sure you want to delete this row?"))
+    {
+      var request = $.ajax
+      ({
+        url:          '/delete',
+        data:         'uniqueid='+userid,
+        type:         'GET',
+        success: function(response)
+        {
+             location.reload();
+            
+        },
+        error: function(error) 
+        {
+            console.log(error);
+        }
+      });
+      
+    }
+    
+  });
+
+</script>    
+    
+ </body>
+ </html>
