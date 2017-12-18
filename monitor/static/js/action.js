@@ -51,13 +51,13 @@ $(document).ready(function() {
         $("#dataTables-event tbody").html('');
         $("#dataTables-event tbody").append(html); 
 
-        $('#dataTables-event').DataTable
+        /*$('#dataTables-event').DataTable
         ({
 		    destroy: true,
 		    pageLength: 10,
 	        responsive: true,
 	 		ordering: false
-		});
+		});*/
 
         
 

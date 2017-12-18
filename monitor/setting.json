@@ -1,0 +1,102 @@
+[
+    {
+        "auto": false,
+        "cycle": 50,
+        "description": "first relay",
+        "gpio": 18,
+        "ipaddr": "192.168.1.159",
+        "pwd": "0170101",
+        "uid": "ubuntu",
+        "uniqueid": 1
+    },
+    {
+        "auto": false,
+        "cycle": 30,
+        "description": "2nd relay",
+        "gpio": 17,
+        "ipaddr": "192.168.1.160",
+        "pwd": "0170101",
+        "uid": "ubuntu",
+        "uniqueid": 2
+    },
+    {
+        "auto": false,
+        "cycle": 30,
+        "description": "3rd relay",
+        "gpio": 27,
+        "ipaddr": "192.168.1.161",
+        "pwd": "0170101",
+        "uid": "ubuntu",
+        "uniqueid": 3
+    },
+    {
+        "auto": false,
+        "cycle": 30,
+        "description": "4th relay",
+        "gpio": 23,
+        "ipaddr": "192.168.1.162",
+        "pwd": "0170101",
+        "uid": "ubuntu",
+        "uniqueid": 4
+    },
+    {
+        "auto": false,
+        "cycle": 30,
+        "description": "5th relay",
+        "gpio": 22,
+        "ipaddr": "192.168.1.163",
+        "pwd": "0170101",
+        "uid": "ubuntu",
+        "uniqueid": 5
+    },
+    {
+        "auto": false,
+        "cycle": 30,
+        "description": "6th relay",
+        "gpio": 24,
+        "ipaddr": "192.168.1.164",
+        "pwd": "0170101",
+        "uid": "ubuntu",
+        "uniqueid": 6
+    },
+    {
+        "auto": false,
+        "cycle": 30,
+        "description": "7th relay",
+        "gpio": 25,
+        "ipaddr": "192.168.1.165",
+        "pwd": "0170101",
+        "uid": "ubuntu",
+        "uniqueid": 7
+    },
+    {
+        "auto": false,
+        "cycle": 30,
+        "description": "8th relay",
+        "gpio": 5,
+        "ipaddr": "192.168.1.166",
+        "pwd": "0170101",
+        "uid": "ubuntu",
+        "uniqueid": 8
+    },
+    {
+        "auto": false,
+        "cycle": 30,
+        "description": "",
+        "gpio": 25,
+        "ipaddr": "192.168.1.1",
+        "pwd": "pwd",
+        "uid": "uid",
+        "uniqueid": 9
+    },
+    {
+        "auto": false,
+        "cycle": 30,
+        "description": "",
+        "gpio": 25,
+        "ipaddr": "192.168.1.1",
+        "pwd": "pwd",
+        "uid": "uid",
+        "uniqueid": 10
+    }
+]
