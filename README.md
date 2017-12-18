@@ -3,3 +3,6 @@ Building monitoring and control system for miners using RPI and Flask websocket 
 
 # Wiring diagram
 ![wiring](https://github.com/chace1989/RPI-PC-monitor-Dashboard/blob/master/rpi_wiring.png)
+
+# Dashboard
+![dash](https://github.com/chace1989/RPI-PC-monitor-Dashboard/blob/master/screenshot.png)
